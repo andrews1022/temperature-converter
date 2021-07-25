@@ -16,6 +16,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    background: linear-gradient(to bottom, ${theme.colors.witchHaze} 0%, ${theme.colors.grannySmithApple} 100%);
+    background-repeat: no-repeat;
+    color: ${theme.greys.nero};
     font-family: ${theme.fonts.roboto};
     line-height: 1;
   }
@@ -78,6 +81,17 @@ const GlobalStyle = createGlobalStyle`
   video {
     display: inline-block;
     max-width: 100%;
+  }
+
+  #root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    @media ${theme.mediaQueries.tabletPortrait} {
+      align-items: flex-start;
+    }
   }
 `;
 

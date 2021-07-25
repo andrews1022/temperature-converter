@@ -26,7 +26,8 @@ const theme = {
 	colors: {
 		witchHaze: '#d4fc79',
 		grannySmithApple: '#96e6a1',
-		curiousBlue: '#349dbd'
+		curiousBlue: '#349dbd',
+		scooter: '#2b8dab'
 	},
 	fonts: {
 		roboto: "'Roboto', sans-serif"
