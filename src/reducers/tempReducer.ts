@@ -11,10 +11,11 @@ export const initialTemps: TempState = {
 };
 
 export type Actions =
+	| { type: `convert_from_${string}`; payload: number }
 	| { type: 'convert_from_celsius'; payload: number }
 	| { type: 'convert_from_fahrenheit'; payload: number }
 	| { type: 'convert_from_kelvin'; payload: number }
-	| { type: 'reset_temps' };
+	| { type: 'reset_temps'; payload: number };
 
 export const tempReducer = (state: TempState, action: Actions): TempState => {
 	switch (action.type) {

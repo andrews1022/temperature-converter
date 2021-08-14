@@ -3,10 +3,11 @@ import React, { useReducer } from 'react';
 // component
 import TempInput from '../TempInput';
 
+// styled components
+import { Temp, TempGroup, TempResetButton } from './styles';
+
 // reducer
 import { initialTemps, tempReducer } from '../../reducers/tempReducer';
-
-import { Temp, TempGroup, TempResetButton } from './styles';
 
 const TempCalc = () => {
 	const [tempState, dispatch] = useReducer(tempReducer, initialTemps);
@@ -19,7 +20,10 @@ const TempCalc = () => {
 			))}
 
 			<TempGroup>
-				<TempResetButton onClick={() => dispatch({ type: 'reset_temps' })} type='button'>
+				<TempResetButton
+					onClick={() => dispatch({ type: 'reset_temps', payload: 0 })}
+					type='button'
+				>
 					Reset
 				</TempResetButton>
 			</TempGroup>

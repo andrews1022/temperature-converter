@@ -1,12 +1,16 @@
 import React from 'react';
 
+// styled components
 import { TempGroup } from '../TempCalc/styles';
 import { TempLabel, TempInputWrapper } from './styles';
+
+// action type
+import { Actions } from '../../reducers/tempReducer';
 
 interface TempInputProps {
 	tempType: string;
 	tempState: any;
-	dispatch: any;
+	dispatch: React.Dispatch<Actions>;
 }
 
 const TempInput = ({ tempType, tempState, dispatch }: TempInputProps) => (
