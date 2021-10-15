@@ -1,30 +1,35 @@
+// font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import Copy from '../Copy';
-import { FooterWrapper, IconRow, IconLink } from './styles';
 
+// components
+import Copy from '../Copy';
+
+// styled components
+import { FooterWrapper, IconLink, IconRow } from './styles';
+
+// util
+import getCurrentYear from '../../util/getCurrentYear';
+
+// types
+import { SocialLink } from '../../types/types';
+
+// props
 interface FooterProps {
-	socialLinks: string[];
+	socialLinks: SocialLink[];
 }
 
-const Footer = ({ socialLinks }: FooterProps) => {
-	const [gitHubLink, twitterLink] = socialLinks;
+const Footer = ({ socialLinks }: FooterProps) => (
+	<FooterWrapper>
+		<Copy>© {getCurrentYear()} all rights reserved. designed and built and andrew shearer</Copy>
 
-	return (
-		<FooterWrapper>
-			<Copy>
-				© {new Date().getFullYear()} all rights reserved. designed and built and andrew shearer
-			</Copy>
-			<IconRow>
-				<IconLink href={gitHubLink} target='_blank' rel='noopener noreferrer'>
-					<FontAwesomeIcon icon={faGithub} size='lg' />
+		<IconRow>
+			{socialLinks.map((link) => (
+				<IconLink key={link.site} href={link.url} target='_blank' rel='noopener noreferrer'>
+					<FontAwesomeIcon icon={link.site === 'GitHub' ? faGithub : faTwitter} size='lg' />
 				</IconLink>
-				<IconLink href={twitterLink} target='_blank' rel='noopener noreferrer'>
-					<FontAwesomeIcon icon={faTwitter} size='lg' />
-				</IconLink>
-			</IconRow>
-		</FooterWrapper>
-	);
-};
-
+			))}
+		</IconRow>
+	</FooterWrapper>
+);
 export default Footer;

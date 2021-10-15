@@ -2,20 +2,22 @@ import React from 'react';
 
 // styled components
 import { TempGroup } from '../TempCalc/styles';
-import { TempLabel, TempInputWrapper } from './styles';
+import { TempInputWrapper, TempLabel } from './styles';
 
-// action type
+// actions
 import { Actions } from '../../reducers/tempReducer';
 
+// props
 interface TempInputProps {
-	tempType: string;
-	tempState: any;
 	dispatch: React.Dispatch<Actions>;
+	tempState: any;
+	tempType: string;
 }
 
-const TempInput = ({ tempType, tempState, dispatch }: TempInputProps) => (
+const TempInput = ({ dispatch, tempState, tempType }: TempInputProps) => (
 	<TempGroup>
 		<TempLabel htmlFor={`temp-${tempType}`}>{tempType}</TempLabel>
+
 		<TempInputWrapper
 			className='temp-input'
 			type='number'

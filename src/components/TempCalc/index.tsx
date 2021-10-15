@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import { useReducer } from 'react';
 
 // component
 import TempInput from '../TempInput';
@@ -10,6 +10,7 @@ import { Temp, TempGroup, TempResetButton } from './styles';
 import { initialTemps, tempReducer } from '../../reducers/tempReducer';
 
 const TempCalc = () => {
+	// reducer state
 	const [tempState, dispatch] = useReducer(tempReducer, initialTemps);
 
 	return (

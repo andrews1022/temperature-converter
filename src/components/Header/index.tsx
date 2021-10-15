@@ -1,14 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
+// components
 import Heading from '../Heading';
 
+// styled components
+import HeaderWrapper from './styles';
+
+// props
 interface HeaderProps {
 	headingText: string;
 }
-
-const HeaderWrapper = styled.header`
-	text-align: center;
-`;
 
 const Header = ({ headingText }: HeaderProps) => (
 	<HeaderWrapper>

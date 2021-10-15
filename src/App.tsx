@@ -1,7 +1,7 @@
 // components
 import AppWrapper from './components/AppWrapper';
-import Header from './components/Header';
 import Footer from './components/Footer';
+import Header from './components/Header';
 import TempCalc from './components/TempCalc';
 
 // data
