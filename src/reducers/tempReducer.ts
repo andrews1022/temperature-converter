@@ -19,34 +19,39 @@ export type Actions =
 
 export const tempReducer = (state: TempState, action: Actions): TempState => {
 	switch (action.type) {
-		case 'convert_from_celsius':
+		case 'convert_from_celsius': {
 			return {
 				...state,
 				celsius: +action.payload,
 				fahrenheit: +(+action.payload * 1.8 + 32).toFixed(2),
 				kelvin: +(+action.payload + 273.15).toFixed(2)
 			};
+		}
 
-		case 'convert_from_fahrenheit':
+		case 'convert_from_fahrenheit': {
 			return {
 				...state,
 				celsius: +((+action.payload - 32) / 1.8).toFixed(2),
 				fahrenheit: +action.payload,
 				kelvin: +((+action.payload - 32) / 1.8 + 273.15).toFixed(2)
 			};
+		}
 
-		case 'convert_from_kelvin':
+		case 'convert_from_kelvin': {
 			return {
 				...state,
 				celsius: +(+action.payload - 273.15).toFixed(2),
 				fahrenheit: +((+action.payload - 273.15) * 1.8 + 32).toFixed(2),
 				kelvin: +action.payload
 			};
+		}
 
-		case 'reset_temps':
+		case 'reset_temps': {
 			return initialTemps;
+		}
 
-		default:
+		default: {
 			return state;
+		}
 	}
 };
