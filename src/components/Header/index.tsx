@@ -1,18 +1,13 @@
-// components
-import Heading from '../Heading';
+import React from 'react';
 
 // styled components
-import HeaderWrapper from './styles';
+import * as S from './styles';
+import { Heading } from '../UI/Heading';
 
-// props
-interface HeaderProps {
-	headingText: string;
-}
-
-const Header = ({ headingText }: HeaderProps) => (
-	<HeaderWrapper>
-		<Heading>{headingText}</Heading>
-	</HeaderWrapper>
+const Header = () => (
+	<S.Header>
+		<Heading>Temperature Converte</Heading>
+	</S.Header>
 );
 
 export default Header;

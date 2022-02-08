@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-const HeaderWrapper = styled.header`
+export const Header = styled.header`
 	text-align: center;
 `;
-
-export default HeaderWrapper;

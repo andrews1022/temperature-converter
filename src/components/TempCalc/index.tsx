@@ -1,10 +1,12 @@
-import { useReducer } from 'react';
+import React, { useReducer } from 'react';
 
-// component
+// components
 import TempInput from '../TempInput';
 
 // styled components
-import { Temp, TempGroup, TempResetButton } from './styles';
+import * as S from './styles';
+import { Button } from '../UI/Button';
+import { Flex } from '../UI/Flex';
 
 // reducer
 import { initialTemps, tempReducer } from '../../reducers/tempReducer';
@@ -13,22 +15,23 @@ const TempCalc = () => {
 	// reducer state
 	const [tempState, dispatch] = useReducer(tempReducer, initialTemps);
 
+	const resetTempsHandler = () => {
+		dispatch({ type: 'RESET_TEMPS', payload: 0 });
+	};
+
 	return (
-		<Temp>
+		<S.Wrapper>
 			{/* for each key in the temp state object, create a TempInput component for it */}
 			{Object.keys(tempState).map((tempType) => (
 				<TempInput key={tempType} tempType={tempType} tempState={tempState} dispatch={dispatch} />
 			))}
 
-			<TempGroup>
-				<TempResetButton
-					onClick={() => dispatch({ type: 'reset_temps', payload: 0 })}
-					type='button'
-				>
+			<Flex>
+				<Button onClick={resetTempsHandler} type='button'>
 					Reset
-				</TempResetButton>
-			</TempGroup>
-		</Temp>
+				</Button>
+			</Flex>
+		</S.Wrapper>
 	);
 };
 
