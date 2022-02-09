@@ -1,13 +1,7 @@
-export interface TempState {
+type TempState = {
 	celsius: number;
 	fahrenheit: number;
 	kelvin: number;
-}
-
-export const initialTemps: TempState = {
-	celsius: 0,
-	fahrenheit: 0,
-	kelvin: 0
 };
 
 export type TempActions =
@@ -16,6 +10,12 @@ export type TempActions =
 	| { type: 'CONVERT_FROM_FAHRENHEIT'; payload: number }
 	| { type: 'CONVERT_FROM_KELVIN'; payload: number }
 	| { type: 'RESET_TEMPS'; payload: number };
+
+export const initialTemps: TempState = {
+	celsius: 0,
+	fahrenheit: 0,
+	kelvin: 0
+};
 
 export const tempReducer = (state: TempState = initialTemps, action: TempActions): TempState => {
 	switch (action.type) {
