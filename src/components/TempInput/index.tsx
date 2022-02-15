@@ -1,11 +1,12 @@
-import React, { ChangeEvent, Dispatch } from 'react';
+import React from 'react';
+import type { ChangeEvent, Dispatch } from 'react';
 
 // styled components
 import * as S from './styles';
 import { Flex } from '../UI/Flex';
 
 // actions
-import { TempActions } from '../../reducers/tempReducer';
+import type { TempActions } from '../../reducers/tempReducer';
 
 // props
 type TempInputProps = {
