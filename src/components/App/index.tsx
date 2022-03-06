@@ -9,11 +9,11 @@ import TempCalc from '../TempCalc';
 import * as S from './styles';
 
 const App = () => (
-	<S.Wrapper>
-		<Header />
-		<TempCalc />
-		<Footer />
-	</S.Wrapper>
+  <S.Wrapper>
+    <Header />
+    <TempCalc />
+    <Footer />
+  </S.Wrapper>
 );
 
 export default App;

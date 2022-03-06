@@ -5,9 +5,9 @@ import * as S from './styles';
 import { Heading } from '../UI/Heading';
 
 const Header = () => (
-	<S.Header>
-		<Heading>Temperature Converte</Heading>
-	</S.Header>
+  <S.Header>
+    <Heading>Temperature Converte</Heading>
+  </S.Header>
 );
 
 export default Header;

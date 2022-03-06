@@ -12,27 +12,27 @@ import { Flex } from '../UI/Flex';
 import { initialTemps, tempReducer } from '../../reducers/tempReducer';
 
 const TempCalc = () => {
-	// reducer state
-	const [tempState, dispatch] = useReducer(tempReducer, initialTemps);
+  // reducer state
+  const [tempState, dispatch] = useReducer(tempReducer, initialTemps);
 
-	const resetTempsHandler = () => {
-		dispatch({ type: 'RESET_TEMPS', payload: 0 });
-	};
+  const resetTempsHandler = () => {
+    dispatch({ type: 'RESET_TEMPS', payload: 0 });
+  };
 
-	return (
-		<S.Wrapper>
-			{/* for each key in the temp state object, create a TempInput component for it */}
-			{Object.keys(tempState).map((tempType) => (
-				<TempInput key={tempType} tempType={tempType} tempState={tempState} dispatch={dispatch} />
-			))}
+  return (
+    <S.Wrapper>
+      {/* for each key in the temp state object, create a TempInput component for it */}
+      {Object.keys(tempState).map((tempType) => (
+        <TempInput key={tempType} tempType={tempType} tempState={tempState} dispatch={dispatch} />
+      ))}
 
-			<Flex>
-				<Button onClick={resetTempsHandler} type='button'>
-					Reset
-				</Button>
-			</Flex>
-		</S.Wrapper>
-	);
+      <Flex>
+        <Button onClick={resetTempsHandler} type='button'>
+          Reset
+        </Button>
+      </Flex>
+    </S.Wrapper>
+  );
 };
 
 export default TempCalc;
