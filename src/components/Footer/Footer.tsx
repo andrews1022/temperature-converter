@@ -5,20 +5,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 // components
-import ExternalLink from '../ExternalLink';
+import ExternalLink from '../ExternalLink/ExternalLink';
 
 // styled components
-import * as S from './styles';
+import * as S from './Footer.styles';
 import { Copy } from '../UI/Copy';
 import { ScreenReaderText } from '../UI/ScreenReaderText';
 
-// util
+// utils
 import { getCurrentYear } from '../../utils/getCurrentYear';
 
 // data
 import { socialLinks } from '../../data/socialLinks';
 
-const Footer = () => (
+const Footer = (): JSX.Element => (
   <S.Footer>
     <Copy>© {getCurrentYear()} all rights reserved. designed and built and andrew shearer</Copy>
 

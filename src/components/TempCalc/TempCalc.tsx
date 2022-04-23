@@ -1,19 +1,19 @@
-import React, { useReducer } from 'react';
+import { useReducer } from 'react';
 
 // components
-import TempInput from '../TempInput';
+import TempInput from '../TempInput/TempInput';
 
 // styled components
-import * as S from './styles';
+import * as S from './TempCalc.styles';
 import { Button } from '../UI/Button';
 import { Flex } from '../UI/Flex';
 
 // reducer
 import { initialTemps, tempReducer } from '../../reducers/tempReducer';
 
-const TempCalc = () => {
+const TempCalc = (): JSX.Element => {
   // reducer state
-  const [tempState, dispatch] = useReducer(tempReducer, initialTemps);
+  const [state, dispatch] = useReducer(tempReducer, initialTemps);
 
   const resetTempsHandler = () => {
     dispatch({ type: 'RESET_TEMPS', payload: 0 });
@@ -21,9 +21,8 @@ const TempCalc = () => {
 
   return (
     <S.Wrapper>
-      {/* for each key in the temp state object, create a TempInput component for it */}
-      {Object.keys(tempState).map((tempType) => (
-        <TempInput key={tempType} tempType={tempType} tempState={tempState} dispatch={dispatch} />
+      {Object.keys(state).map((temp) => (
+        <TempInput key={temp} type={temp} state={state} dispatch={dispatch} />
       ))}
 
       <Flex>

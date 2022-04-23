@@ -1,4 +1,4 @@
-type TempState = {
+export type TempState = {
   celsius: number;
   fahrenheit: number;
   kelvin: number;

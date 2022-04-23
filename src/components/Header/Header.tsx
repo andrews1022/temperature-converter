@@ -1,10 +1,8 @@
-import React from 'react';
-
 // styled components
-import * as S from './styles';
+import * as S from './Header.styles';
 import { Heading } from '../UI/Heading';
 
-const Header = () => (
+const Header = (): JSX.Element => (
   <S.Header>
     <Heading>Temperature Converte</Heading>
   </S.Header>
