@@ -6,10 +6,10 @@ export type TempState = {
 
 export type TempActions =
   | { type: `CONVERT_FROM_${string}`; payload: number }
-  | { type: 'CONVERT_FROM_CELSIUS'; payload: number }
-  | { type: 'CONVERT_FROM_FAHRENHEIT'; payload: number }
-  | { type: 'CONVERT_FROM_KELVIN'; payload: number }
-  | { type: 'RESET_TEMPS'; payload: number };
+  | { type: "CONVERT_FROM_CELSIUS"; payload: number }
+  | { type: "CONVERT_FROM_FAHRENHEIT"; payload: number }
+  | { type: "CONVERT_FROM_KELVIN"; payload: number }
+  | { type: "RESET_TEMPS"; payload: number };
 
 export const initialTemps: TempState = {
   celsius: 0,
@@ -19,7 +19,7 @@ export const initialTemps: TempState = {
 
 export const tempReducer = (state: TempState = initialTemps, action: TempActions): TempState => {
   switch (action.type) {
-    case 'CONVERT_FROM_CELSIUS': {
+    case "CONVERT_FROM_CELSIUS": {
       return {
         ...state,
         celsius: +action.payload,
@@ -28,7 +28,7 @@ export const tempReducer = (state: TempState = initialTemps, action: TempActions
       };
     }
 
-    case 'CONVERT_FROM_FAHRENHEIT': {
+    case "CONVERT_FROM_FAHRENHEIT": {
       return {
         ...state,
         celsius: +((+action.payload - 32) / 1.8).toFixed(2),
@@ -37,7 +37,7 @@ export const tempReducer = (state: TempState = initialTemps, action: TempActions
       };
     }
 
-    case 'CONVERT_FROM_KELVIN': {
+    case "CONVERT_FROM_KELVIN": {
       return {
         ...state,
         celsius: +(+action.payload - 273.15).toFixed(2),
@@ -46,7 +46,7 @@ export const tempReducer = (state: TempState = initialTemps, action: TempActions
       };
     }
 
-    case 'RESET_TEMPS': {
+    case "RESET_TEMPS": {
       return initialTemps;
     }
 

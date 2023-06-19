@@ -1,14 +1,14 @@
-import type { ChangeEvent, Dispatch } from 'react';
+import type { ChangeEvent, Dispatch } from "react";
 
 // styled components
-import * as S from './TempInput.styles';
-import { Flex } from '../UI/Flex';
+import * as S from "./TempInput.styles";
+import { Flex } from "../UI/Flex";
 
 // actions
-import type { TempActions } from '../../reducers/tempReducer';
+import type { TempActions } from "../../reducers/tempReducer";
 
 // custom type
-import { TempState } from '../../reducers/tempReducer';
+import { TempState } from "../../reducers/tempReducer";
 
 // props
 type TempInputProps = {
@@ -30,7 +30,7 @@ const TempInput = ({ dispatch, state, type }: TempInputProps): JSX.Element => {
         id={`temp-${type}`}
         name={`temp-${type}`}
         onChange={changeTempsHandler}
-        type='number'
+        type="number"
         value={state[type as keyof TempState]}
       />
     </Flex>

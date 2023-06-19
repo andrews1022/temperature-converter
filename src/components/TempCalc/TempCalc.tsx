@@ -1,22 +1,22 @@
-import { useReducer } from 'react';
+import { useReducer } from "react";
 
 // components
-import TempInput from '../TempInput/TempInput';
+import TempInput from "../TempInput/TempInput";
 
 // styled components
-import * as S from './TempCalc.styles';
-import { Button } from '../UI/Button';
-import { Flex } from '../UI/Flex';
+import * as S from "./TempCalc.styles";
+import { Button } from "../UI/Button";
+import { Flex } from "../UI/Flex";
 
 // reducer
-import { initialTemps, tempReducer } from '../../reducers/tempReducer';
+import { initialTemps, tempReducer } from "../../reducers/tempReducer";
 
 const TempCalc = (): JSX.Element => {
   // reducer state
   const [state, dispatch] = useReducer(tempReducer, initialTemps);
 
   const resetTempsHandler = () => {
-    dispatch({ type: 'RESET_TEMPS', payload: 0 });
+    dispatch({ type: "RESET_TEMPS", payload: 0 });
   };
 
   return (
@@ -26,7 +26,7 @@ const TempCalc = (): JSX.Element => {
       ))}
 
       <Flex>
-        <Button onClick={resetTempsHandler} type='button'>
+        <Button onClick={resetTempsHandler} type="button">
           Reset
         </Button>
       </Flex>
