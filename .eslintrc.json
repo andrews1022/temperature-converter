@@ -3,7 +3,12 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["airbnb", "plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "globals": {
     "JSX": true
   },
@@ -24,6 +29,7 @@
     "block-spacing": "warn",
     "comma-dangle": "off",
     "comma-spacing": "warn",
+    "default-param-last": ["warn"],
     "dot-location": "warn",
     "eol-last": "warn",
     "func-style": ["warn", "expression"],
