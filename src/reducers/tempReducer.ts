@@ -5,7 +5,6 @@ export type TempState = {
 };
 
 export type TempActions =
-  | { type: `CONVERT_FROM_${string}`; payload: number }
   | { type: "CONVERT_FROM_CELSIUS"; payload: number }
   | { type: "CONVERT_FROM_FAHRENHEIT"; payload: number }
   | { type: "CONVERT_FROM_KELVIN"; payload: number }
@@ -15,6 +14,10 @@ export const initialTemps: TempState = {
   celsius: 0,
   fahrenheit: 0,
   kelvin: 0
+};
+
+const exhaustiveMatchingGuard = (action: never): never => {
+  throw new Error(`Should not have reached here. Incorrect action used: ${action}`);
 };
 
 export const tempReducer = (state: TempState = initialTemps, action: TempActions): TempState => {
@@ -51,7 +54,7 @@ export const tempReducer = (state: TempState = initialTemps, action: TempActions
     }
 
     default: {
-      return state;
+      return exhaustiveMatchingGuard(action);
     }
   }
 };

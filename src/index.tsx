@@ -1,20 +1,20 @@
-import { StrictMode } from "react";
-import ReactDOM from "react-dom";
-
-// styled components
+import { createRoot } from "react-dom/client";
 import { ThemeProvider } from "styled-components";
-import GlobalStyle from "./styles/GlobalStyle";
-import theme from "./styles/theme";
 
 // components
 import App from "./components/App/App";
 
-ReactDOM.render(
-  <StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <App />
-    </ThemeProvider>
-  </StrictMode>,
-  document.getElementById("root")
+// styled components
+import GlobalStyle from "./styles/GlobalStyle";
+import theme from "./styles/theme";
+
+const container = document.getElementById("root");
+
+const root = createRoot(container!);
+
+root.render(
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <App />
+  </ThemeProvider>
 );

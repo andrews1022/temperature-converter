@@ -19,7 +19,24 @@ type TempInputProps = {
 
 const TempInput = ({ dispatch, state, type }: TempInputProps): JSX.Element => {
   const changeTempsHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    dispatch({ type: `CONVERT_FROM_${type.toUpperCase()}`, payload: +event.target.value });
+    const payload = +event.target.value;
+
+    switch (type) {
+      case "celsius":
+        dispatch({ type: "CONVERT_FROM_CELSIUS", payload });
+        break;
+
+      case "fahrenheit":
+        dispatch({ type: "CONVERT_FROM_FAHRENHEIT", payload });
+        break;
+
+      case "kelvin":
+        dispatch({ type: "CONVERT_FROM_KELVIN", payload });
+        break;
+
+      default:
+        break;
+    }
   };
 
   return (
